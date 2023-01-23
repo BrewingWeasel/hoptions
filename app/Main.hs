@@ -1,6 +1,7 @@
 module Main (main) where
 
 import Lib
+import System.Environment
 import System.IO
 
 selectedColor :: Color
@@ -58,7 +59,9 @@ main :: IO ()
 main = do
   hSetBuffering stdin NoBuffering
 
+  putStrLn "\ESC[?25l" -- Make cursor invisible
   printOptions options
+
   putStr $ moveUp $ length options
   clearLine
   putStr $ makeRgb selectedColor
@@ -67,4 +70,6 @@ main = do
 
   input <- getChar
   ans <- editSelection 0 input
+
+  putStrLn "\ESC[?25h"
   print ans

@@ -1,0 +1,13 @@
+cradle:
+  cabal:
+    - path: "src"
+      component: "lib:chooser"
+
+    - path: "app/Main.hs"
+      component: "chooser:exe:chooser-exe"
+
+    - path: "app/Paths_chooser.hs"
+      component: "chooser:exe:chooser-exe"
+
+    - path: "test"
+      component: "chooser:test:chooser-test"
